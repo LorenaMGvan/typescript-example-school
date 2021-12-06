@@ -1,0 +1,10 @@
+.box-materias {
+    display: grid;
+    grid-template-columns: repeat(3, 4fr);
+    grid-gap: 16px;
+}
+.card-img-top {
+    height: 120px;
+    object-fit: cover;
+    width: 100%;
+}
