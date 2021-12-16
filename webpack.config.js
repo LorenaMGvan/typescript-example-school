@@ -4,9 +4,6 @@ const MiniCssExtractPlugin    = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyPlugin              = require('copy-webpack-plugin');
 
-const pages = ["index", "alumnos", "maestros"];
-
-// home: ['./src/index.ts', './src/style.scss'],
 module.exports = {
     mode: 'development',
     entry: {
@@ -14,21 +11,13 @@ module.exports = {
         alumnos: ['./src/alumnos.ts'],
         maestros: ['./src/maestros.ts'],
     },
-    // output: {
-    //     path: __dirname + 'dist',
-    //     filename: '[name].bundle.js',
-    // },      
+          
     output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].js',        
+        path: path.resolve(__dirname, 'dist'),        
+        clean: true,
     },
-    // output: {
-    //     filename: 'main.js',
-    //     path: path.resolve(__dirname, 'dist'),
-    // },  
-    // output: {
-    //     filename: '[name].js',
-    // }, 
+   
     resolve: {
         extensions: ['.ts','.js','.json']
     },
@@ -42,19 +31,23 @@ module.exports = {
                 use: 'ts-loader',
                 exclude: /node_modules/
             },
+            // {
+            //     test: /\.s[ac]ss$/i,
+            //     use: [
+            //     // Creates `style` nodes from JS strings
+            //     "style-loader",
+            //     // Translates CSS into CommonJS
+            //     "css-loader",
+            //     // Compiles Sass to CSS
+            //     "sass-loader",
+            //     ],
+            // },
             {
-                test: /\.css$/,
-                exclude: /styles\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
-            },
-            {
-                test: /styles\.css$/,
+                test: /\.s[ac]ss$/i,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader'
+                    "css-loader",
+                    "sass-loader",
                 ]
             },
             {
@@ -80,42 +73,62 @@ module.exports = {
             }
         ]
     },
-    plugins: [
-        new MiniCssExtractPlugin({
-          filename: '[name].css',
-        }),
-    ],
+    // plugins: [
+    //     new MiniCssExtractPlugin({
+    //       filename: '[name].css',
+    //     }),
+    // ],
     plugins: [
         new HtmlWebPackPlugin({
             template: './src/index.html',
-            filename: './index.html'
+            // inject : "body",
+            hash: false,  
+            filename: './index.html',
+            chunks: ['home'], 
         }),
         new HtmlWebPackPlugin({
             template: './src/alumnos.html',            
-            hash: true,            
-            filename: 'alumnos.html'
+            // inject : "body",
+            hash: false,            
+            filename: 'alumnos.html',
+            chunks: ['alumnos'], 
             // filename: './alumnos.html'
         }),
         new HtmlWebPackPlugin({
             template: './src/maestros.html',
+            // inject : "body",
             hash: false,    
-            filename: './maestros.html'
+            filename: './maestros.html',
+            chunks: ['maestros'], 
         }),
         new MiniCssExtractPlugin({
             filename: '[name].css',
             ignoreOrder: false
         }),
+        new CopyPlugin({
+            patterns: [
+            //   { from: 'src/jquery.min.js', to: 'jquery.min.js' },
+              { from: 'src/assets', to: 'assets/images' },
+              //{ from: 'icons', to: '../' },
+            ],
+          }),
         // new CopyPlugin([
         //     { from: 'src/favicon.ico', to: './favicon.ico' },
         // ]),
     ],
     devServer: {
-        static: {
-          directory: path.join(__dirname, 'dist'),
-        },
-        compress: true,
-        port: 9000,
+        static: './dist',    
     },
+    // devServer: {
+    //     static: {
+    //       directory: path.join(__dirname, 'public'),
+    //     },
+    //     //compress: true,
+    //     port: 8080,
+    // },
 
 }
+
+
+
 

@@ -1,0 +1,14 @@
+// @import './css/reset.css';
+// @import './css/_vars';
+
+.box-materias {
+  display: grid;
+  grid-template-columns: repeat(4, 3fr);
+  grid-gap: 16px;
+}
+
+.card-img-top {
+  height: 120px;
+  object-fit: contain;
+  width: 100%;
+}

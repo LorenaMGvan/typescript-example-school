@@ -1,8 +1,13 @@
 # typescript-example-school
-Esto es un ejemplo  básico , donde se aplica Typescript, webpack...
+Esto es un ejemplo  básico , donde se aplican algunos elementos de  Typescript como:
+
+* Decoradores
+* Classes
 
 
 
+
+webpack
 Instalaciones: 
 npm install --save-dev webpack
 npm install webpack webpack-cli --save-dev
@@ -26,3 +31,6 @@ npx webpack serve
 
 
 
+
+
+npm run build
