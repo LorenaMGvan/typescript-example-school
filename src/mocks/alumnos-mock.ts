@@ -7,7 +7,7 @@ let alumnos = [
         "lastNameF": "Ada",
         "lastNameM": "King",
         "age": 40,
-        "matricula": 'aaa00',
+        "matricula": 'xyz-3',
         "level": 1        
     },
     { 
@@ -16,7 +16,7 @@ let alumnos = [
         "lastNameF": "Heafield ",
         "lastNameM": "Hamilton",
         "age": 85,
-        "matricula": 'aaa00',
+        "matricula": 'xyz-3',
         "level": 1        
     },
     { 
@@ -25,7 +25,7 @@ let alumnos = [
         "lastNameF": "Ervin",
         "lastNameM": "Knuth",
         "age": 83,
-        "matricula": 'aaa00',
+        "matricula": 'xyz-3',
         "level": 1        
     },
     { 
@@ -34,7 +34,7 @@ let alumnos = [
         "lastNameF": "Lane",
         "lastNameM": "Thompson",
         "age": 78,
-        "matricula": 'aaa00',
+        "matricula": 'xyz-3',
         "level": 2        
     },
     { 
@@ -43,7 +43,7 @@ let alumnos = [
         "lastNameF": "Stallman",
         "lastNameM": "Stallman",
         "age": 40,
-        "matricula": 'aaa00',
+        "matricula": 'xyz-3',
         "level": 2        
     },
    

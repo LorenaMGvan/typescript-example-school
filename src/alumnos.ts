@@ -1,8 +1,9 @@
 import { createPopper } from '@popperjs/core';
 import { listStudents } from './mocks/alumnos-mock';
 import { Pagina, People , Student } from './classes';
-import validaRegistroForm , { FormP } from './extras/validarFormAlumno';
+import validaRegistroForm , { FormP, validaFieldText, validaFieldEdad } from './extras/validarForms';
 import serialize from './extras/serialize';
+import { json } from 'node:stream/consumers';
 //const bootstrap = require('bootstrap');
 
 
@@ -10,8 +11,6 @@ const paginaAlumnos = new Pagina('Alumnos', '#50aad7');
 const formAlumno = <HTMLFormElement>document.getElementById('formAddAlumno');
 let tablaFormat = document.querySelector('.box-alumnos tbody');
 let btnForm = <HTMLInputElement>document.getElementById('btn-add-alumno');
-// console.log('alumnosOb: ', JSON.parse(alumnosOb));
-
 
 const showAlumnos = (alumnos) => {
   let  rowItem = '';
@@ -58,6 +57,17 @@ listStudents()
       
   }
 
+  const getMatricula = () => {
+    let studentLevel = <HTMLFormElement>document.querySelector('#user-nivel');
+    let studentName = <HTMLFormElement>document.querySelector('#user-name');
+    let studentApeP = <HTMLFormElement>document.querySelector('#user-apePaterno');
+    let studentApeM = <HTMLFormElement>document.querySelector('#user-apeMaterno');
+    let matricula:string = `xyz-${studentLevel.value}    
+                            ${studentName.value.substring(0, 3)}-
+                            ${studentApeP.value.substring(0, 3)}${studentApeM.value.substring(0, 3)}`;
+    return matricula;
+  }
+
   /**************** 
     Agregar alumno 
   ******************/
@@ -69,12 +79,12 @@ listStudents()
     
     if (validaRegistroForm(formObj)) {              
       let alumnosN = JSON.parse(localStorage.getItem('alumnosLocal'));      
-      
+      // generar matricula de alumno      
+      formObj['matricula'] = getMatricula();            
       alumnosN.push(formObj);               
       localStorage.setItem('alumnosLocal',  JSON.stringify(alumnosN));                        
       showAlumnos(JSON.parse(localStorage.getItem('alumnosLocal')));      
       formAlumno.reset();
-
       //
       addStyleRow();
     }
@@ -85,6 +95,6 @@ listStudents()
   //btnForm.disabled = true;
   formAlumno.addEventListener('submit', addAlumno, false);
   paginaAlumnos.showMenu();
-
+  validaFieldText();
 
 

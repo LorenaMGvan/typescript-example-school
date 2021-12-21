@@ -1,5 +1,4 @@
-let menuTop = `<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-              <div class="container-fluid">
+let menuTop = `<div class="container-fluid">
                 <a class="navbar-brand" href="#">Top navbar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -17,11 +16,10 @@ let menuTop = `<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
                     </li>              
                   </ul>
                   <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <input id="searchMaterias" class="form-control me-2" type="search" placeholder="Buscar Materia" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                   </form>
                 </div>
-              </div>
-              </nav>`;
+              </div>`;
 
 export default menuTop;            

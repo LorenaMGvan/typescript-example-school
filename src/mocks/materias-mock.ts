@@ -1,4 +1,4 @@
-interface Maeteria {
+export interface MateriaI {
     id: string;
     logo: string;
     nombre: string ;
@@ -10,7 +10,7 @@ interface Maeteria {
 }
 
 
-export const materias: Maeteria[] = [
+export const materias: MateriaI[] = [
     {  "id": "lp-c",
         "logo": "clogo.jpg",
         "nombre": "C",
