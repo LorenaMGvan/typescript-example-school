@@ -1,5 +1,6 @@
 "use strict";
 import { createPopper } from '@popperjs/core';
+import { Pagina } from './classes';
 import { materias } from './mocks/materias-mock';
 const bootstrap = require('bootstrap');
 import './style.scss';
@@ -22,3 +23,7 @@ materias.forEach( (materia) => {
 if( boxMaterias  ) {
   boxMaterias.innerHTML = materiaFormat;
 }
+
+
+const paginaMaterias = new Pagina('Materias', '#50aad7');
+paginaMaterias.showMenu();

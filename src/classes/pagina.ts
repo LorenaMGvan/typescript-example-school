@@ -1,3 +1,5 @@
+import menuTop from '../extras/menu';
+
 function animateTitle() {
   
   return function( target: any, propertyKey: string, descriptor: PropertyDescriptor) {    
@@ -31,5 +33,10 @@ export class Pagina {
     console.log('color del titulo');
 	}  
 
+
+  showMenu() {
+    let menu = <HTMLFormElement>document.querySelector('nav');    
+    menu.innerHTML = menuTop;
+  }
 
 }

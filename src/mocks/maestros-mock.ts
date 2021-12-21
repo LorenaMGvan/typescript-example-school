@@ -1,9 +1,9 @@
 "use strict";
 
-let alumnos = [
+let maestros = [
     { 
         "id": 1,
-        "name": "Fulanita 1",
+        "name": "Augusta",
         "lastNameF": "Ada",
         "lastNameM": "King",
         "age": 40,
@@ -12,7 +12,7 @@ let alumnos = [
     },
     { 
         "id": 2,
-        "name": "Fulanita 2",
+        "name": "Margaret",
         "lastNameF": "Heafield ",
         "lastNameM": "Hamilton",
         "age": 85,
@@ -21,7 +21,7 @@ let alumnos = [
     },
     { 
         "id": 3,
-        "name": "Fulanita 3",
+        "name": "Donald",
         "lastNameF": "Ervin",
         "lastNameM": "Knuth",
         "age": 83,
@@ -30,7 +30,7 @@ let alumnos = [
     },
     { 
         "id": 4,
-        "name": "Fulanita 4",
+        "name": "Ken",
         "lastNameF": "Lane",
         "lastNameM": "Thompson",
         "age": 78,
@@ -39,7 +39,7 @@ let alumnos = [
     },
     { 
         "id": 5,
-        "name": "Fulanita 5",
+        "name": "Richard",
         "lastNameF": "Stallman",
         "lastNameM": "Stallman",
         "age": 40,
@@ -50,11 +50,11 @@ let alumnos = [
 ];
 
 // Una función asincróna simulando la petición desde el servidor
-export let listStudents = () => new Promise((resolve, reject) => {
+export let listMaestros = () => new Promise((resolve, reject) => {
     
     setTimeout(() => {
-        if (alumnos) {
-            resolve(alumnos);
+        if (maestros) {
+            resolve(maestros);
         }
     
         else {
@@ -63,9 +63,3 @@ export let listStudents = () => new Promise((resolve, reject) => {
     }, 1000);
     
 });
-
-
-// export { listStudents };
-
-
-// export let alfa = 3.14159;

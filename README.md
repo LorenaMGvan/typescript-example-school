@@ -34,3 +34,4 @@ npx webpack serve
 
 
 npm run build
+npm install @types/node --save-dev

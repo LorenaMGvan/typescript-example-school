@@ -140,3 +140,4 @@ export const materias: Maeteria[] = [
    
 ];
 
+export {};

@@ -30,18 +30,7 @@ module.exports = {
                 test: /\.ts$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
-            },
-            // {
-            //     test: /\.s[ac]ss$/i,
-            //     use: [
-            //     // Creates `style` nodes from JS strings
-            //     "style-loader",
-            //     // Translates CSS into CommonJS
-            //     "css-loader",
-            //     // Compiles Sass to CSS
-            //     "sass-loader",
-            //     ],
-            // },
+            },           
             {
                 test: /\.s[ac]ss$/i,
                 use: [
@@ -73,30 +62,26 @@ module.exports = {
             }
         ]
     },
-    // plugins: [
-    //     new MiniCssExtractPlugin({
-    //       filename: '[name].css',
-    //     }),
-    // ],
+    plugins: [
+        new MiniCssExtractPlugin({
+          filename: '[name].css',
+        }),
+    ],
     plugins: [
         new HtmlWebPackPlugin({
             template: './src/index.html',
-            // inject : "body",
             hash: false,  
             filename: './index.html',
             chunks: ['home'], 
         }),
         new HtmlWebPackPlugin({
             template: './src/alumnos.html',            
-            // inject : "body",
             hash: false,            
             filename: 'alumnos.html',
             chunks: ['alumnos'], 
-            // filename: './alumnos.html'
         }),
         new HtmlWebPackPlugin({
             template: './src/maestros.html',
-            // inject : "body",
             hash: false,    
             filename: './maestros.html',
             chunks: ['maestros'], 
@@ -118,15 +103,7 @@ module.exports = {
     ],
     devServer: {
         static: './dist',    
-    },
-    // devServer: {
-    //     static: {
-    //       directory: path.join(__dirname, 'public'),
-    //     },
-    //     //compress: true,
-    //     port: 8080,
-    // },
-
+    },    
 }
 
 

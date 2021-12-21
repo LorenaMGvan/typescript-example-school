@@ -22,6 +22,5 @@ export class Student extends People {
     console.log('obtiene el estudiante X');
   }
 
- 
 
 }
